@@ -1,0 +1,37 @@
+﻿<UserControl xmlns:my="clr-namespace:DevExpress.AgDataGrid;assembly=DevExpress.AgDataGrid.v9.3"  x:Class="AgDataGrid_Preview.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <DataTemplate x:Key="DataRowPreviewTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Country:" Margin="2" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Country}" Margin="2" />
+                    <TextBlock Text="City:" Grid.Column="2" Margin="2" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="3" Text="{Binding City}" Margin="2" />
+                    <TextBlock Text="Unit Price:" Grid.Row="1" Margin="2" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding UnitPrice}" Margin="2" />
+                    <TextBlock Text="Quantity:" Grid.Row="1" Grid.Column="2" Margin="2" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Quantity}" Margin="2" />
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <my:AgDataGrid x:Name="grid" PreviewTemplate="{StaticResource DataRowPreviewTemplate}">
+            <my:AgDataGrid.Columns>
+                <my:AgDataGridColumn FieldName="CompanyName" Width="250"/>
+            </my:AgDataGrid.Columns>
+        </my:AgDataGrid>
+    </Grid>
+</UserControl>
